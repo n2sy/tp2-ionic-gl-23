@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ListCoursesService } from '../list-courses.service';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  tabCourses = [];
+  constructor(private courseSer: ListCoursesService) {}
 
-  constructor() {}
-
+  ngOnInit() {
+    this.tabCourses = this.courseSer.getAllCourses();
+  }
 }
