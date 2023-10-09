@@ -49,6 +49,7 @@ export class ListCoursesService {
 
   addCourse(newCourse) {
     newCourse.id = this.allCourses[this.allCourses.length - 1].id + 1;
+    newCourse.keywords = newCourse.keywords.split(',');
     this.allCourses.push(newCourse);
   }
 }

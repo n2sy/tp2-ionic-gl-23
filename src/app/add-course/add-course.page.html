@@ -5,9 +5,21 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">add-course</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <form #f="ngForm">
+    <ion-label>Title </ion-label>
+    <ion-input ngModel name="title" type="text"></ion-input>
+    <ion-label>Author </ion-label>
+    <ion-input ngModel name="author" type="text"></ion-input>
+    <ion-label>Image </ion-label>
+    <ion-input ngModel name="image" type="url"></ion-input>
+    <ion-label>Keywords </ion-label>
+    <ion-input ngModel name="keywords" type="text"></ion-input>
+    <ion-button (click)="onSubmit(f.value)" color="success" expand="block"
+      >Add</ion-button
+    >
+  </form>
+
+  <pre>
+    {{ f.value | json }}
+  </pre>
 </ion-content>
